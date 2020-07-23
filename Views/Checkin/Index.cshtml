@@ -1,0 +1,503 @@
+  
+<style>
+    .contenedorHabi a{
+    text-decoration: none;
+    color: #1C1C1C;
+}
+    .contenedorHabi span{
+    padding-left:40px;
+    text-decoration: none;
+    color: #1C1C1C;
+}
+
+.cardhab{
+    border: 1px solid #CDCDCD;
+    margin: 10px ;
+}
+.imagenhab{
+    background-color:   #f1f1f1;
+    margin: 10px;
+    text-align: center;
+}
+
+.imagenhab label{
+    font-size: 40px;
+    padding-top: 20px;
+    padding-left: 25px;
+}
+.imagenhab p{
+    font-size: 20px;
+    text-align: center;
+}
+.estadohab{
+
+    color: #dfdfdf;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+
+</style>
+  <main class="main col">
+
+                                        <div class="row">
+                                            <div class="columna col-lg-6">
+                                                <div class="widget nueva_entrada mt-4">
+                                                    <h3 class="titulo">Check in</h3>
+
+                                                </div>
+
+                                                <div class="columna col-lg-7">
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                <div class="row">
+
+                    <div class="columna ">
+                        <div class="row mt-3">
+                            <div class="col">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a href="#tab2" class="nav-link active" data-toggle="tab">Piso2</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#tab3" class="nav-link" data-toggle="tab">Piso3</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#tab4" class="nav-link" data-toggle="tab">Piso4</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#tab5" class="nav-link" data-toggle="tab">Piso5</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#tab6" class="nav-link" data-toggle="tab">Buscar</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab2" role="tabpanel">
+
+                                        <div class="row">
+                                            <div class="columna col-lg-6">
+                                                <div class="widget nueva_entrada mt-4">
+                                                    <h3 class="titulo"></h3>
+
+                                                </div>
+
+                                                <div class="columna col-lg-7">
+
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="columna col-lg-5">
+
+
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row mt-3">
+
+
+
+                                            @foreach (var item in (List<Hab>)ViewBag.Hab2)
+                                            {
+                                                
+                                            
+
+                                            <div class="col-lg-3">
+                                                <div class="card mb-4 captura">
+                                                    <div class="row start">
+                                                        <div class="col-lg-6 align-content-center letrastart">
+                                                            <h3>@item.numhab</h3>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <img src="~/img/cama.jpeg" class="card-img-top" alt="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-body">
+
+                                                        <p class="card-text textoroom">@item.tipo</p>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            
+                                                        @if(item.estado.Equals("Reservado")){
+                                                            <div class="btn-group">
+                                                                <a  asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
+
+                                                            </div>
+                                                        }else {
+                                                            <div class="btn-group">
+                                                                <a  href="#" class="ocupado"><span>@item.estado</span></a>
+
+                                                            </div>
+                                                        } 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            }
+
+
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+
+
+
+                                    <div class="tab-pane" id="tab3" role="tabpanel">
+                                        <div class="row">
+                                            <div class="columna col-lg-6">
+                                                <div class="widget nueva_entrada mt-4">
+                                                    <h3 class="titulo"></h3>
+
+                                                </div>
+
+                                                <div class="columna col-lg-7">
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="row mt-3">
+
+
+
+                                            @foreach (var item in (List<Hab>)ViewBag.Hab3)
+                                            {
+
+                                            <div class="col-lg-3">
+                                                <div class="card mb-4 captura">
+                                                    <div class="row start">
+                                                        <div class="col-lg-6 align-content-center letrastart">
+                                                            <h3>@item.numhab</h3>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <img src="~/img/cama.jpeg" class="card-img-top" alt="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-body">
+
+                                                        <p class="card-text textoroom">@item.tipo</p>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            
+                                                        @if(item.estado.Equals("Reservado")){
+                                                            <div class="btn-group">
+                                                                <a  asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
+
+                                                            </div>
+                                                        }else {
+                                                            <div class="btn-group">
+                                                                <a  href="#" class="ocupado"><span>@item.estado</span></a>
+
+                                                            </div>
+                                                        } 
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            }
+                                        
+                                        </div>
+
+
+
+                                        <div class="row mt-2">
+
+
+
+
+
+                                            
+                        
+
+                                            
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="tab-pane" id="tab4" role="tabpanel">
+                                        <div class="row">
+                                            <div class="columna col-lg-6">
+                                                <div class="widget nueva_entrada mt-4">
+                                                    <h3 class="titulo"></h3>
+
+                                                </div>
+
+                                                <div class="columna col-lg-7">
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="row mt-3">
+
+
+
+
+
+                                            @foreach (var item in (List<Hab>)ViewBag.Hab4)
+                                            {
+
+                                            <div class="col-lg-3">
+                                                <div class="card mb-4 captura">
+                                                    <div class="row start">
+                                                        <div class="col-lg-6 align-content-center letrastart">
+                                                            <h3>@item.numhab</h3>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <img src="~/img/cama.jpeg" class="card-img-top" alt="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-body">
+
+                                                        <p class="card-text textoroom">@item.tipo</p>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            
+                                                        @if(item.estado.Equals("Reservado")){
+                                                            <div class="btn-group">
+                                                                <a  asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
+
+                                                            </div>
+                                                        }else {
+                                                            <div class="btn-group">
+                                                                <a  href="#" class="ocupado"><span>@item.estado</span></a>
+
+                                                            </div>
+                                                        } 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            }
+                                            
+                                            
+
+
+                                        </div>
+
+
+
+                                        <div class="row mt-2">
+
+
+
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="tab-pane" id="tab5" role="tabpanel">
+                                        <div class="row">
+                                            <div class="columna col-lg-6">
+                                                <div class="widget nueva_entrada mt-4">
+                                                    <h3 class="titulo"></h3>
+
+                                                </div>
+
+                                                <div class="columna col-lg-7">
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <div class="row mt-3">
+
+
+                                            @foreach (var item in (List<Hab>)ViewBag.Hab5)
+                                            {
+
+                                            <div class="col-lg-3">
+                                                <div class="card mb-4 captura">
+                                                    <div class="row start">
+                                                        <div class="col-lg-6 align-content-center letrastart">
+                                                            <h3>@item.numhab</h3>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <img src="~/img/cama.jpeg" class="card-img-top" alt="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-body">
+
+                                                        <p class="card-text textoroom">@item.tipo</p>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            
+                                                        @if(item.estado.Equals("Reservado")){
+                                                            <div class="btn-group">
+                                                                <a  asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab" class="reservado"><span>@item.estado</span></a>
+
+                                                            </div>
+                                                        }else {
+                                                            <div class="btn-group">
+                                                                <a  href="#" class="ocupado"><span>@item.estado</span></a>
+
+                                                            </div>
+                                                        } 
+                                                        </div>
+                                                         
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            }
+
+
+
+
+                                        </div>
+
+
+
+                                        <div class="row mt-2">
+
+
+
+
+
+                                           
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="tab-pane" id="tab6" role="tabpanel">
+
+
+
+                                       
+                                        <div class="row mb-3">
+
+                                            
+                                        </div>
+<br>
+<br>
+                                        <div class="row">
+                                            <div class="columna col-lg-6">
+                                                
+                                                <input id="search" type="text" class="form-control" placeholder="Ingrese su Número de DNI" name="buscardni" >
+                                            </div>
+                                            <div class="columna col-lg-6">
+                                                <button class="btn btn-primary">Buscar DNI</button>
+                                            </div>
+</div>
+ <div class="contenedorHabi">
+<div class="row">
+                @foreach (var item in (List<Hab>)ViewBag.Habb)
+                                            {
+
+                                            
+                        <div class="col-md-4 " >
+                              <span> 
+                            <a asp-controller="Checkin" asp-action="Check" asp-route-num="@item.numhab">
+                                
+                            <div class="cardhab">
+                                
+                                <div class="imagenhab">
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>@item.numhab</label>
+                                            <br>@item.codcli
+                                        </div>
+                                        <div class="col-md-7">
+                                            <img src="~/img/cama.jpeg" height="100px" width="100px">
+                                        </div>
+                                        
+                                            @if(item.tipo.Equals("Matrimonial")){
+                                            <div class="col-md-12">    
+                                                <p>@item.tipo</p>
+                                            </div>
+                                            <br>
+                                            }else{
+                                                <div class="col-md-12">    
+                                                <p>@item.tipo</p>
+                                            </div>
+                                            }
+                                        
+                                    </div>
+                                    
+                                </div>
+                            
+
+                            </div>
+                            
+                            </a></span>
+                        </div>
+
+
+
+                                            
+
+                                    
+                                            }
+                                            
+                                            
+
+
+                                        </div>
+</div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+<script type="text/javascript">
+	var search = document.getElementById("search"),
+    food = document.getElementsByTagName("span"),
+    forEach = Array.prototype.forEach;
+
+search.addEventListener("keyup", function(e){
+    var choice = this.value;
+  
+    forEach.call(food, function(f){
+        if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
+            f.parentNode.style.display = "none";        
+        else
+            f.parentNode.style.display = "block";        
+    });
+}, false);
+</script>
+            </main>
